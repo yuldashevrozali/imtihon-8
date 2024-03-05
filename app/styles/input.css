@@ -1,4 +1,74 @@
-/* .inputs{
+.shipping input {
+    width: 634px;
+    height: 54px;
+    border-radius: 8px;
+    border: 1px solid #CFCFCF;
+    background: #FFF;
+    margin-top: 9px;
+    margin-bottom: 24px;
+    padding-left: 15px;
+}
+
+.zip {
     display: flex;
-    gap: 25px;
-} */
+    gap: 16px;
+    width: 635px;
+    flex-wrap: wrap;
+}
+
+.zip input {
+    border-radius: 8px;
+    border: 1px solid #CFCFCF;
+    background: #FFF;
+    width: 309px;
+    height: 56px;
+    flex-shrink: 0;
+}
+
+input[type='radio'] {
+    width: 309px;
+    border-radius: 8px;
+    border: 2px solid #D87D4A;
+    background: #FFF;
+    height: 56px;
+    flex-shrink: 0;
+}
+
+.payments h1 {
+    color: #D87D4A;
+    font-family: sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 25px;
+    letter-spacing: 0.929px;
+    text-transform: uppercase;
+}
+
+.payments p {
+    color: #000;
+    font-family: sans-serif;
+    margin-top: -15px;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.214px;
+}
+
+.payment {
+    display: flex;
+}
+.e-money-number{
+    display: flex;
+    gap: 16px;
+}
+
+.e-money-number input{
+    width: 309px;
+}
+
+.payment-left{
+    width: 309px;
+    align-items: center;
+}

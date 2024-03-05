@@ -21,7 +21,7 @@ interface UserData {
 const UserId: React.FC = () => {
   const { id } = useParams();
   const [user, setUser] = useState<UserData | null>(null);
-  const [count, setCount] = useState<number>(1); 
+  const [count, setCount] = useState<number>(1);
 
   useEffect(() => {
     if (id && typeof id === 'string') {
@@ -33,11 +33,11 @@ const UserId: React.FC = () => {
   }, [id]);
 
   const handleIncrement = () => {
-    setCount((prevCount) => Math.min(prevCount + 1, 15)); // Max +15
+    setCount((prevCount) => Math.min(prevCount + 1, 15)); 
   };
 
   const handleDecrement = () => {
-    setCount((prevCount) => Math.max(prevCount - 1, 1)); // Max -1
+    setCount((prevCount) => Math.max(prevCount - 1, 1)); 
   };
 
   return (
@@ -75,6 +75,20 @@ const UserId: React.FC = () => {
                   <span>{includedItem.quantity}x</span> {includedItem.item}
                 </p>
               ))}
+            </div>
+          </div>
+          <div className='bringing'>
+            <div className="bringing-left">
+              <h1>Bringing you the best audio gear</h1>
+              <p>Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products. Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.</p>
+            </div>
+            <div className="bringing-right">
+              <Image
+                src="/bringing.png"
+                alt="Rasmning izohi"
+                width={540}
+                height={588}
+              />
             </div>
           </div>
         </div>

@@ -1,7 +1,19 @@
+'use client'
 import Image from 'next/image';
-import Link from "next/link";
+import Link from 'next/link';
+import { useState } from 'react';
 
 export default function Home() {
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <>
       <div className="header">
@@ -18,7 +30,7 @@ export default function Home() {
             <p>Experience natural, lifelike audio and exceptional build
               quality made for the passionate music enthusiast.
             </p>
-            <Link href='./HEADPHONES'>See See Product</Link>
+            <Link href='./HEADPHONES'>See  Product</Link>
           </div>
         </div>
       </div>
@@ -67,6 +79,33 @@ export default function Home() {
           <Link href='/EARPHONES'>See Product</Link>
         </div>
       </div>
+
+      <div className='bringing'>
+        <div className="bringing-left">
+          <h1>Bringing you the best audio gear</h1>
+          <p>Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products. Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.</p>
+        </div>
+        <div className="bringing-right">
+          <Image
+            src="/bringing.png"
+            alt="Rasmning izohi"
+            width={540}
+            height={588}
+          />
+        </div>
+      </div>
+
+      {/* Modal oynasi */}
+      {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <h2>Modal Sarlavhasi</h2>
+            <p>Bu modal oynada kerakli ma'lumotlar bo'lishi mumkin</p>
+            <button onClick={openModal}>ochish</button>
+            <button onClick={closeModal}>yopish</button>
+          </div>
+        </div>
+      )}
     </>
   );
 }
