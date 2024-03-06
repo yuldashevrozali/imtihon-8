@@ -1,6 +1,7 @@
 'use client'
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import userData from '../data/data.json';
+import shopcart from '../data/data2.json'
 import Image from 'next/image';
 import { useParams } from "next/navigation";
 
@@ -23,6 +24,17 @@ const UserId: React.FC = () => {
   const [user, setUser] = useState<UserData | null>(null);
   const [count, setCount] = useState<number>(1);
 
+  const handleclick = () => {
+    if (user) {
+      const updatedShopcart = [...shopcart];
+      const selectedProduct = products.find(product => product.title === user.product);
+      updatedShopcart.push({ name: selectedProduct.title });
+      console.log(updatedShopcart); 
+    }
+  }
+  
+  
+
   useEffect(() => {
     if (id && typeof id === 'string') {
       const foundUser = userData.find((user: UserData) => user.id === Number(id));
@@ -39,6 +51,8 @@ const UserId: React.FC = () => {
   const handleDecrement = () => {
     setCount((prevCount) => Math.max(prevCount - 1, 1)); 
   };
+  console.log(shopcart);
+  
 
   return (
     <div>
@@ -59,7 +73,7 @@ const UserId: React.FC = () => {
                   <span>{count}</span>
                   <button onClick={handleIncrement}>+</button>
                 </div>
-                <button id="add">ADD TO CART</button>
+                <button onClick={handleclick} id="add">ADD TO CART</button>
               </div>
             </div>
           </div>
