@@ -1,24 +1,14 @@
 'use client'
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import data from './products/data/data2.json'
 
 export default function Home() {
-  const [showModal, setShowModal] = useState(false);
-
-  const openModal = () => {
-    setShowModal(true);
-  };
-
-  const closeModal = () => {
-    setShowModal(false);
-  };
-
+  console.log(data);
+  
   return (
     <>
       <div className="header">
-
-
         <div className="header-bottom">
           <div className="hero-left">
             <p className='product'>
@@ -95,17 +85,8 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Modal oynasi */}
-      {showModal && (
-        <div className="modal">
-          <div className="modal-content">
-            <h2>Modal Sarlavhasi</h2>
-            <p>Bu modal oynada kerakli ma'lumotlar bo'lishi mumkin</p>
-            <button onClick={openModal}>ochish</button>
-            <button onClick={closeModal}>yopish</button>
-          </div>
-        </div>
-      )}
+      
+
     </>
   );
 }

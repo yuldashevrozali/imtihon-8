@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useState } from "react";
 import userData from '../data/data.json';
-import shopcart from '../data/data2.json'
+import shopcart from '../data/data2.json';
 import Image from 'next/image';
 import { useParams } from "next/navigation";
 
@@ -27,13 +27,24 @@ const UserId: React.FC = () => {
   const handleclick = () => {
     if (user) {
       const updatedShopcart = [...shopcart];
-      const selectedProduct = products.find(product => product.title === user.product);
-      updatedShopcart.push({ name: selectedProduct.title });
-      console.log(updatedShopcart); 
+      if (user.name !== "") {
+        updatedShopcart.push({ name: user.name, price: user.price });
+      }
+      console.log(updatedShopcart);
+
+      fetch('/data/data2.json', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedShopcart),
+      })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
     }
   }
-  
-  
+
 
   useEffect(() => {
     if (id && typeof id === 'string') {
@@ -45,14 +56,14 @@ const UserId: React.FC = () => {
   }, [id]);
 
   const handleIncrement = () => {
-    setCount((prevCount) => Math.min(prevCount + 1, 15)); 
+    setCount((prevCount) => Math.min(prevCount + 1, 15));
   };
 
   const handleDecrement = () => {
-    setCount((prevCount) => Math.max(prevCount - 1, 1)); 
+    setCount((prevCount) => Math.max(prevCount - 1, 1));
   };
   console.log(shopcart);
-  
+
 
   return (
     <div>
@@ -115,3 +126,4 @@ const UserId: React.FC = () => {
 };
 
 export default UserId;
+

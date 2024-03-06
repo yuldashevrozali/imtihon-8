@@ -1,5 +1,5 @@
 import { Dialog, DialogContent, DialogTitle } from '@mui/material';
-// import shopcart from '../products/data/data2.json'
+import shopcart from '../products/data/data2.json';
 
 const SimpleDialog = ({ open, selectedValue, onClose }) => {
   const handleClose = () => {
@@ -10,9 +10,9 @@ const SimpleDialog = ({ open, selectedValue, onClose }) => {
     <Dialog onClose={handleClose} open={open}>
       <DialogTitle>CART</DialogTitle>
       <DialogContent className="Dialog-wrapper">
-      {/* {shopcart.map((e,i) => {
-        <h1></h1>
-      })} */}
+        {shopcart.map((e, i) => (
+          <h1 key={i}>{e.price}</h1>
+        ))}
         <div className="Dialog-main">
           <span>Remove all</span>
           <p>TOTAL</p>
